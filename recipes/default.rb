@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
+if node['platform_family'] == "rhel"
+  include_recipe "yum-epel"
+end
+
 # Install relevant package
 pkg = value_for_platform(
   [ "centos", "fedora", "redhat" ] => {
