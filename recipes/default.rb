@@ -7,6 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# Install relevant package
 pkg = value_for_platform(
   [ "centos", "fedora", "redhat" ] => {
     "default" => "mod_evasive"
