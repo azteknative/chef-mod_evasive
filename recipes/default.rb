@@ -34,15 +34,11 @@ file "#{node['apache']['dir']}/conf.d/mod_evasive.conf" do
 end
 
 # Drop off debian-style config
-%w{ conf
-    load }.each do |ext|
-
-  template "#{node['apache']['dir']}/mods-available/evasive20.#{ext}" do
-    source "evasive.#{ext}.erb"
-    owner "root"
-    group "root"
-    mode "0644"
-  end
+template "#{node['apache']['dir']}/mods-available/evasive20.conf" do
+  source "evasive.conf.erb"
+  owner "root"
+  group "root"
+  mode "0644"
 end
 
 apache_module "evasive20"
