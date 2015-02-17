@@ -28,9 +28,13 @@ package pkg do
 end
 
 # Remove the RPM packaged config if necessary
-file "#{node['apache']['dir']}/conf.d/mod_evasive.conf" do
-  action :delete
-  only_if { node['platform_family'] == "rhel" }
+%w{ conf.d/mod_evasive.conf
+    mods-available/evasive.conf
+    mods-available/evasive.load }.each do |f|
+
+  file "#{node['apache']['dir']}/#{f}" do
+    action :delete
+  end
 end
 
 # Drop off debian-style config
