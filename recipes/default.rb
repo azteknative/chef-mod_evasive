@@ -27,12 +27,21 @@ package pkg do
   action :install
 end
 
-# Remove the RPM packaged config if necessary
+# Remove the packaged config if necessary
 %w{ conf.d/mod_evasive.conf
     mods-available/evasive.conf
     mods-available/evasive.load }.each do |f|
 
   file "#{node['apache']['dir']}/#{f}" do
+    action :delete
+  end
+end
+
+# Remove symlinks created by apt-get
+%w{ mods-enabled/evasive.conf
+    mods-enabled/evasive.load }.each do |l|
+
+  link "#{node['apache']['dir']}/#{l}" do
     action :delete
   end
 end
