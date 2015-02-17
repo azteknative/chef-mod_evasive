@@ -1,0 +1,31 @@
+
+<IfModule mod_evasive20.c>
+    DOSHashTableSize    <%= node['apache']['mod_evasive']['dos_hash_table_size'] %>
+
+    DOSPageCount        <%= node['apache']['mod_evasive']['dos_page_count'] %>
+
+    DOSSiteCount        <%= node['apache']['mod_evasive']['dos_site_count'] %>
+
+    DOSPageInterval     <%= node['apache']['mod_evasive']['dos_page_interval'] %>
+
+    DOSSiteInterval     <%= node['apache']['mod_evasive']['dos_site_interval'] %>
+
+    DOSBlockingPeriod   <%= node['apache']['mod_evasive']['dos_blocking_period'] %>
+
+    <%- unless node['apache']['mod_evasive']['dos_notify_email'].nil? -%>
+    DOSEmailNotify      <%= node['apache']['mod_evasive']['dos_notify_email'] %>
+    <%- end -%>
+
+    <%- unless node['apache']['mod_evasive']['dos_system_command'].nil? -%>
+    DOSSystemCommand    <%= node['apache']['mod_evasive']['dos_system_command'] %>
+    <%- end -%>
+
+    <%- unless node['apache']['mod_evasive']['dos_log_dir'].nil? -%>
+    DOSLogDir    <%= node['apache']['mod_evasive']['dos_log_dir'] %>
+    <%- end -%>
+
+    <%- node['apache']['mod_evasive']['dos_white_list'].each do |wl| -%>
+    DOSWhitelist <%= wl %>
+    <%- end -%>
+</IfModule>
+
