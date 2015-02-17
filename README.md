@@ -33,7 +33,7 @@ RPM.
   <tr>
     <td><tt>['apache2']['mod_evasive']['dos_page_count']</tt></td>
     <td>Integer</td>
-    <td.This is the threshhold for the number of requests for the same page (or
+    <td>This is the threshhold for the number of requests for the same page (or
     URI) per page interval.  Once the threshhold for that interval has been
     exceeded, the IP address of the client will be added to the blocking
     list.</td>
