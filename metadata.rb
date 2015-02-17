@@ -1,7 +1,7 @@
 name             'mod_evasive'
 maintainer       'AzTek Native Ltd.'
 maintainer_email 'peter.green@aztek-native.com'
-license          'All rights reserved'
+license          'Apache 2.0'
 description      'Installs/Configures mod_evasive'
 long_description 'Installs/Configures mod_evasive'
 version          '0.1.0'
